@@ -26,3 +26,16 @@ module "ecr" {
 
   repositories = var.repositories
 }
+
+module "rds" {
+
+  source = "../../modules/rds"
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  private_subnet_ids = module.vpc.private_subnet_ids
+
+  rds_security_group_id = module.security_group.rds_security_group_id
+}
