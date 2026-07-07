@@ -39,3 +39,13 @@ module "rds" {
 
   rds_security_group_id = module.security_group.rds_security_group_id
 }
+
+module "sns" {
+
+  source = "../../modules/sns"
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+}
