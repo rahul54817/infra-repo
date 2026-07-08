@@ -49,3 +49,16 @@ module "sns" {
   environment = var.environment
 
 }
+
+
+module "sqs" {
+
+  source = "../../modules/sqs"
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  sns_topic_arn = module.sns.topic_arn
+
+}
