@@ -62,3 +62,14 @@ module "sqs" {
   sns_topic_arn = module.sns.topic_arn
 
 }
+
+module "iam" {
+  source = "../../modules/iam"
+
+  project_name = var.project_name
+  environment  = var.environment
+
+  sns_topic_arn          = module.sns.topic_arn
+  inventory_queue_arn    = module.sqs.inventory_queue_arn
+  notification_queue_arn = module.sqs.notification_queue_arn
+}
