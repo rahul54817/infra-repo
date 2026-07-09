@@ -17,7 +17,7 @@ resource "aws_secretsmanager_secret_version" "db" {
 
     username = var.db_username
 
-    password = random_password.db.result
+    password = "postgres"
   })
 }
 
